@@ -79,7 +79,8 @@ function crearCuerpo() {
         botonBorrar.addEventListener("click", () => {
             alumno
                 .notificacion(
-                    `¿Deseas borrar los datos de ${alumno.nombre} ${alumno.apellido}?`
+                    `¿Deseas borrar los datos de ${alumno.nombre} ${alumno.apellido}?`,
+                    "<button id='botonCancelar'>Cancelar</button>"
                 )
                 .then((respuesta) => {
                     if (respuesta) {
