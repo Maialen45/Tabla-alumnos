@@ -138,3 +138,28 @@ td {
     background-color: rgb(170, 170, 255);
     font-weight: bold;
 }
+
+.resumen {
+    background-color: rgb(229, 229, 229);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 8px;
+    padding: 20px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.resumen p {
+    margin: 0;
+}
+.resumen button {
+    background-color: rgb(170, 170, 255);
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 4px;
+    border: transparent;
+    cursor: pointer;
+    margin-top: 20px;
+}

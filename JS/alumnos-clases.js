@@ -32,7 +32,21 @@ class Alumno {
         return Alumno.cursos;
     }
 
-    resumen() {
-        return `El alumno ${this.nombre} ${this.apellido} con DNI ${this.dni} tiene ${this.edad} años y está en el curso ${this.curso}`;
+    mensajeResumen() {
+        return new Promise((resolve) => {
+            let resumen = document.createElement("div");
+            resumen.className = "resumen";
+            let mensaje = `${this.nombre} ${this.apellido} con DNI ${this.dni} tiene ${this.edad} años y está ${this.curso} curso`;
+            resumen.innerHTML = `<p>${mensaje}</p>
+                <button id="botonAceptar">Aceptar</button>
+            `;
+            document.body.appendChild(resumen);
+
+            const botonAceptar = document.getElementById("botonAceptar");
+            botonAceptar.onclick = function () {
+                resumen.remove();
+                resolve(true);
+            };
+        });
     }
 }

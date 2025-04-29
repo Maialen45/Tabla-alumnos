@@ -4,10 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Datos alumnos</title>
-        <link rel="stylesheet" href="estilos.css" />
-        <script src="alumnos-clases.js"></script>
-        <script src="alumnos-clasesBD.js"></script>
-        <script src="funcion-crear-tabla.js"></script>
+        <link rel="stylesheet" href="Estilos/estilos.css" />
     </head>
     <body>
         <div class="contenedor">
@@ -81,34 +78,9 @@
             <hr />
 
             <table id="tabla"></table>
-            <div id="resumen"></div>
         </div>
     </body>
-    <script>
-        function inputCleaner(id) {
-            let input = document.getElementById(id);
-            input.value = "";
-        }
-
-        function crearSelector(id, opciones) {
-            //El id es el id del objeto y las opciones son 1º, 2º...
-            let selector = document.getElementById(id);
-            opciones.forEach((opcion) => {
-                let opcionElemento = document.createElement("option");
-                opcionElemento.setAttribute("value", opcion);
-                opcionElemento.innerHTML = opcion;
-                selector.appendChild(opcionElemento);
-            });
-        }
-        const cursos = Alumno.getCursos();
-        crearSelector("curso", cursos);
-
-        document
-            .getElementById("introducirDatos")
-            .addEventListener("click", introducirDatos);
-        document.getElementById("crearTabla").addEventListener("click", () => {
-            baseDatos(crearTabla);
-            document.getElementById("tabla").innerText = "Cargando datos...";
-        });
-    </script>
+    <script src="JS/alumnos-clases.js"></script>
+    <script src="JS/alumnos-clasesBD.js"></script>
+    <script src="JS/funcion-crear-tabla.js"></script>
 </html>

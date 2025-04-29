@@ -64,7 +64,7 @@ function crearCuerpo() {
         botonResumen.innerHTML = "Resumen";
         botonResumen.id = "boton-resumen";
         botonResumen.addEventListener("click", () => {
-            crearResumen(indice);
+            alumno.mensajeResumen();
         });
         celdaBotonResumen.appendChild(botonResumen);
         fila.appendChild(celdaBotonResumen);
@@ -85,12 +85,6 @@ function crearCuerpo() {
     });
 }
 
-function crearResumen(indice) {
-    let resumen = document.getElementById("resumen");
-    let textoResumen = listaAlumnos[indice].resumen();
-    resumen.innerHTML = textoResumen;
-}
-
 function eliminarFila(indice) {
     listaAlumnos.splice(indice, 1);
     crearTabla();
@@ -107,3 +101,29 @@ const crearTabla = function () {
         crearCuerpo();
     }
 };
+
+function inputCleaner(id) {
+    let input = document.getElementById(id);
+    input.value = "";
+}
+
+function crearSelector(id, opciones) {
+    //El id es el id del objeto y las opciones son 1º, 2º...
+    let selector = document.getElementById(id);
+    opciones.forEach((opcion) => {
+        let opcionElemento = document.createElement("option");
+        opcionElemento.setAttribute("value", opcion);
+        opcionElemento.innerHTML = opcion;
+        selector.appendChild(opcionElemento);
+    });
+}
+const cursos = Alumno.getCursos();
+crearSelector("curso", cursos);
+
+document
+    .getElementById("introducirDatos")
+    .addEventListener("click", introducirDatos);
+document.getElementById("crearTabla").addEventListener("click", () => {
+    baseDatos(crearTabla);
+    document.getElementById("tabla").innerText = "Cargando datos...";
+});
