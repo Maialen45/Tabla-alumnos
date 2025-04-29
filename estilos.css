@@ -1,0 +1,140 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 20px;
+    margin-bottom: 60px;
+    display: flex;
+    justify-content: center;
+}
+
+.contenedor {
+    max-width: 740px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.introducir-datos {
+    background-color: white;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 100%;
+}
+
+.introducir-nombre-apellido,
+.introducir-dni-edad {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.introducir-nombre,
+.introducir-apellido,
+.introducir-dni,
+.introducir-edad,
+.introducir-curso {
+    flex: 1 1 45%;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+input,
+select {
+    padding: 8px 12px;
+    border: 1px solid rgb(216, 209, 209);
+    border-radius: 4px;
+}
+
+input:focus::placeholder {
+    color: transparent;
+}
+
+input:focus {
+    outline: none;
+    border-color: rgb(0, 0, 109);
+}
+
+input:-webkit-autofill {
+    background-color: transparent !important;
+    transition: background-color 5000s ease-in-out 0s;
+    -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
+}
+
+.botones {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.boton-formulario {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: rgb(0, 0, 109);
+    color: white;
+    border: transparent;
+    border-radius: 8px;
+}
+
+.boton-formulario:hover {
+    background-color: rgb(170, 170, 255);
+    color: black;
+    cursor: pointer;
+}
+
+table {
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    overflow: hidden;
+    margin-top: 30px;
+}
+
+thead {
+    background-color: rgb(0, 0, 109);
+    border: transparent;
+    color: white;
+}
+
+th,
+td {
+    border-bottom: 1px solid rgb(216, 209, 209);
+}
+
+th {
+    padding: 10px 0px;
+}
+td {
+    padding: 5px 0px;
+}
+
+#boton-resumen,
+#boton-borrar {
+    padding: 5px 10px;
+    border-radius: 4px;
+    border: transparent;
+    cursor: pointer;
+}
+#boton-borrar {
+    background-color: red;
+    color: white;
+    font-weight: bold;
+}
+#boton-resumen {
+    background-color: rgb(170, 170, 255);
+    font-weight: bold;
+}

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Datos alumnos</title>
+        <link rel="stylesheet" href="estilos.css" />
+        <script src="alumnos-clases.js"></script>
+        <script src="alumnos-clasesBD.js"></script>
+        <script src="funcion-crear-tabla.js"></script>
+    </head>
+    <body>
+        <div class="contenedor">
+            <h1>Datos alumnado</h1>
+            <div class="introducir-datos">
+                <div class="introducir-nombre-apellido">
+                    <div class="introducir-nombre">
+                        <label for="nombre">Nombre: </label>
+                        <input
+                            type="text"
+                            id="nombre"
+                            placeholder="Introduce el nombre"
+                            maxlength="30"
+                            required
+                        />
+                    </div>
+                    <div class="introducir-apellido">
+                        <label for="apellido">Apellido: </label>
+                        <input
+                            type="text"
+                            id="apellido"
+                            placeholder="Introduce el apellido"
+                            maxlength="50"
+                            required
+                        />
+                    </div>
+                </div>
+                <div class="introducir-dni-edad">
+                    <div class="introducir-dni">
+                        <label for="dni">DNI: </label>
+                        <input
+                            type="text"
+                            id="dni"
+                            placeholder="Introduce el DNI"
+                            maxlength="9"
+                            required
+                        />
+                    </div>
+                    <div class="introducir-edad">
+                        <label for="edad">Edad: </label>
+                        <input
+                            type="number"
+                            id="edad"
+                            placeholder="Introduce la edad"
+                            maxlength="2"
+                            required
+                        />
+                    </div>
+                </div>
+                <div class="introducir-curso">
+                    <label for="curso">Curso actual:</label>
+                    <select id="curso">
+                        <option value="" disabled selected>
+                            Seleccione el curso
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="botones">
+                <button
+                    type="button"
+                    class="boton-formulario"
+                    id="introducirDatos"
+                >
+                    Introducir datos
+                </button>
+                <button type="button" class="boton-formulario" id="crearTabla">
+                    Crear tabla
+                </button>
+            </div>
+            <hr />
+
+            <table id="tabla"></table>
+            <div id="resumen"></div>
+        </div>
+    </body>
+    <script>
+        function inputCleaner(id) {
+            let input = document.getElementById(id);
+            input.value = "";
+        }
+
+        function crearSelector(id, opciones) {
+            //El id es el id del objeto y las opciones son 1º, 2º...
+            let selector = document.getElementById(id);
+            opciones.forEach((opcion) => {
+                let opcionElemento = document.createElement("option");
+                opcionElemento.setAttribute("value", opcion);
+                opcionElemento.innerHTML = opcion;
+                selector.appendChild(opcionElemento);
+            });
+        }
+        const cursos = Alumno.getCursos();
+        crearSelector("curso", cursos);
+
+        document
+            .getElementById("introducirDatos")
+            .addEventListener("click", introducirDatos);
+        document.getElementById("crearTabla").addEventListener("click", () => {
+            baseDatos(crearTabla);
+            document.getElementById("tabla").innerText = "Cargando datos...";
+        });
+    </script>
+</html>
