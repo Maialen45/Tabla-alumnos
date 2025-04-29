@@ -139,7 +139,7 @@ td {
     font-weight: bold;
 }
 
-.resumen {
+.notificacion {
     background-color: rgb(229, 229, 229);
     position: fixed;
     top: 50%;
@@ -151,10 +151,10 @@ td {
     flex-direction: column;
     align-items: center;
 }
-.resumen p {
+.notificacion p {
     margin: 0;
 }
-.resumen button {
+.notificacion button {
     background-color: rgb(170, 170, 255);
     font-weight: bold;
     padding: 5px 10px;

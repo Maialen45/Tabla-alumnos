@@ -64,7 +64,9 @@ function crearCuerpo() {
         botonResumen.innerHTML = "Resumen";
         botonResumen.id = "boton-resumen";
         botonResumen.addEventListener("click", () => {
-            alumno.mensajeResumen();
+            alumno.notificacion(
+                `${alumno.nombre} ${alumno.apellido} con DNI ${alumno.dni} tiene ${alumno.edad} años y está en ${alumno.curso} curso`
+            );
         });
         celdaBotonResumen.appendChild(botonResumen);
         fila.appendChild(celdaBotonResumen);
@@ -75,7 +77,20 @@ function crearCuerpo() {
         botonBorrar.innerHTML = "Eliminar";
         botonBorrar.id = "boton-borrar";
         botonBorrar.addEventListener("click", () => {
-            eliminarFila(indice);
+            alumno
+                .notificacion(
+                    `¿Deseas borrar los datos de ${alumno.nombre} ${alumno.apellido}?`
+                )
+                .then((respuesta) => {
+                    if (respuesta) {
+                        listaAlumnos.splice(indice, 1);
+                        localStorage.setItem(
+                            "listaAlumnos",
+                            JSON.stringify(listaAlumnos)
+                        );
+                        crearTabla();
+                    }
+                });
         });
         celdaBotonBorrar.appendChild(botonBorrar);
         fila.appendChild(celdaBotonBorrar);
@@ -83,11 +98,6 @@ function crearCuerpo() {
         cuerpo.appendChild(fila);
         tabla.appendChild(cuerpo);
     });
-}
-
-function eliminarFila(indice) {
-    listaAlumnos.splice(indice, 1);
-    crearTabla();
 }
 
 const crearTabla = function () {

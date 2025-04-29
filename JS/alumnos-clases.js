@@ -32,19 +32,18 @@ class Alumno {
         return Alumno.cursos;
     }
 
-    mensajeResumen() {
+    notificacion(mensaje) {
         return new Promise((resolve) => {
-            let resumen = document.createElement("div");
-            resumen.className = "resumen";
-            let mensaje = `${this.nombre} ${this.apellido} con DNI ${this.dni} tiene ${this.edad} años y está ${this.curso} curso`;
-            resumen.innerHTML = `<p>${mensaje}</p>
+            let notificacion = document.createElement("div");
+            notificacion.className = "notificacion";
+            notificacion.innerHTML = `<p>${mensaje}</p>
                 <button id="botonAceptar">Aceptar</button>
             `;
-            document.body.appendChild(resumen);
+            document.body.appendChild(notificacion);
 
             const botonAceptar = document.getElementById("botonAceptar");
             botonAceptar.onclick = function () {
-                resumen.remove();
+                notificacion.remove();
                 resolve(true);
             };
         });
